@@ -6,7 +6,7 @@ export default function TransactionsPage() {
     <>
       <PageHeader
         title="Giao dịch"
-        description="Thêm, sửa, xóa và lọc các khoản thu chi. Ghi chú có thể được AI gợi ý danh mục."
+        description="Quản lý thu chi và lọc nhanh khi cần đối soát."
       />
       <TransactionsClient />
     </>

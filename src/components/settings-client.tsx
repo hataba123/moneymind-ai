@@ -62,7 +62,7 @@ export function SettingsClient() {
   return (
     <div className="grid gap-6 xl:grid-cols-[0.8fr_1.2fr]">
       <section className="money-card rounded-lg p-5">
-        <h2 className="font-semibold text-slate-950">Tài khoản</h2>
+        <h2 className="font-semibold text-slate-900">Tài khoản</h2>
         <div className="mt-4 space-y-2 text-sm text-slate-700">
           <p><span className="font-semibold">Tên:</span> {session?.user?.name ?? "Chưa có"}</p>
           <p><span className="font-semibold">Email:</span> {session?.user?.email ?? "Chưa có"}</p>
@@ -73,11 +73,11 @@ export function SettingsClient() {
             <input className="focus-ring mt-1 h-11 w-full rounded-md border border-slate-200 px-3" value={name} onChange={(event) => setName(event.target.value)} placeholder="Ví dụ: Du lịch" />
           </label>
           {error && <p className="rounded-md bg-rose-50 p-3 text-sm text-rose-700">{error}</p>}
-          <button className="h-11 w-full rounded-md bg-slate-950 font-semibold text-white hover:bg-slate-800">Thêm danh mục</button>
+          <button className="h-11 w-full rounded-md bg-blue-700 font-semibold text-white hover:bg-blue-800">Thêm danh mục</button>
         </form>
       </section>
       <section className="money-card rounded-lg p-5">
-        <h2 className="font-semibold text-slate-950">Danh mục</h2>
+        <h2 className="font-semibold text-slate-900">Danh mục</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2">
           {loading ? <p className="text-sm text-slate-500">Đang tải...</p> : categories.map((category) => (
             <div key={category.id} className="flex items-center justify-between rounded-md border border-slate-100 bg-white p-3">

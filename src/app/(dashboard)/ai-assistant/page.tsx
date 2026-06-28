@@ -6,7 +6,7 @@ export default function AiAssistantPage() {
     <>
       <PageHeader
         title="AI Assistant"
-        description="Hỏi trợ lý về thói quen chi tiêu, khoản vượt ngân sách và kế hoạch tiết kiệm tháng tới."
+        description="Phân tích nhanh từ dữ liệu thu chi của bạn."
       />
       <AiAssistantClient />
     </>

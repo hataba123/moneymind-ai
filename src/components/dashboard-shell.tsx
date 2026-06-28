@@ -17,10 +17,10 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen bg-slate-50/60">
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-slate-200 bg-white px-4 py-5 lg:block">
-        <Link href="/dashboard" className="flex items-center gap-3 px-2 font-semibold text-slate-950">
-          <span className="grid h-10 w-10 place-items-center rounded-md bg-slate-950 text-teal-300">
+    <div className="min-h-screen bg-slate-50">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-blue-100 bg-white px-4 py-5 lg:block">
+        <Link href="/dashboard" className="flex items-center gap-3 px-2 font-semibold text-slate-900">
+          <span className="grid h-10 w-10 place-items-center rounded-md bg-blue-700 text-white">
             <WalletCards size={22} />
           </span>
           MoneyMind AI
@@ -34,7 +34,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
                 key={item.href}
                 href={item.href}
                 className={`flex h-11 items-center gap-3 rounded-md px-3 text-sm font-semibold transition ${
-                  active ? "bg-slate-950 text-white" : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+                  active ? "bg-blue-700 text-white" : "text-slate-600 hover:bg-blue-50 hover:text-blue-700"
                 }`}
               >
                 <Icon size={18} />
@@ -45,10 +45,10 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         </nav>
       </aside>
       <div className="lg:pl-72">
-        <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-slate-200 bg-white/85 px-4 backdrop-blur md:px-8">
+        <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-blue-100 bg-white/95 px-4 backdrop-blur md:px-8">
           <div className="flex items-center gap-3">
             <Menu className="lg:hidden" size={22} />
-            <span className="font-semibold text-slate-950">Quản lý tài chính</span>
+            <span className="font-semibold text-slate-900">Quản lý tài chính</span>
           </div>
           <AuthButton compact />
         </header>
@@ -58,7 +58,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
               key={item.href}
               href={item.href}
               className={`whitespace-nowrap rounded-md px-3 py-2 text-sm font-semibold ${
-                pathname === item.href ? "bg-slate-950 text-white" : "bg-slate-100 text-slate-700"
+                pathname === item.href ? "bg-blue-700 text-white" : "bg-blue-50 text-blue-700"
               }`}
             >
               {item.label}

@@ -6,7 +6,7 @@ export default function BudgetsPage() {
     <>
       <PageHeader
         title="Ngân sách"
-        description="Thiết lập hạn mức theo danh mục và tháng, theo dõi mức sử dụng và cảnh báo vượt ngưỡng."
+        description="Theo dõi hạn mức theo danh mục."
       />
       <BudgetsClient />
     </>

@@ -124,7 +124,7 @@ export function TransactionsClient() {
   return (
     <div className="grid gap-6 xl:grid-cols-[0.9fr_1.4fr]">
       <section className="money-card rounded-lg p-5">
-        <h2 className="font-semibold text-slate-950">{form.id ? "Sửa giao dịch" : "Thêm giao dịch"}</h2>
+        <h2 className="font-semibold text-slate-900">{form.id ? "Sửa giao dịch" : "Thêm giao dịch"}</h2>
         <form onSubmit={saveTransaction} className="mt-4 space-y-4">
           <div className="grid grid-cols-2 gap-3">
             <Field label="Loại">
@@ -145,11 +145,11 @@ export function TransactionsClient() {
           <Field label="Ghi chú">
             <div className="flex gap-2">
               <input className="focus-ring h-11 flex-1 rounded-md border border-slate-200 px-3" value={form.note} onChange={(event) => setForm({ ...form, note: event.target.value })} placeholder="Ví dụ: ăn sáng 35k" />
-              <button type="button" onClick={suggestCategory} className="grid h-11 w-11 place-items-center rounded-md border border-slate-200 bg-white text-teal-700" title="Gợi ý danh mục">
+              <button type="button" onClick={suggestCategory} className="grid h-11 w-11 place-items-center rounded-md border border-blue-200 bg-white text-blue-700 hover:bg-blue-50" title="Gợi ý danh mục">
                 <Sparkles size={18} />
               </button>
             </div>
-            {suggestion && <p className="mt-2 text-xs text-teal-700">Đã gợi ý: {suggestion}</p>}
+            {suggestion && <p className="mt-2 text-xs text-blue-700">Gợi ý: {suggestion}</p>}
           </Field>
           <div className="grid grid-cols-2 gap-3">
             <Field label="Ngày">
@@ -165,7 +165,7 @@ export function TransactionsClient() {
             </Field>
           </div>
           {error && <p className="rounded-md bg-rose-50 p-3 text-sm text-rose-700">{error}</p>}
-          <button type="submit" disabled={saving} className="h-11 w-full rounded-md bg-slate-950 font-semibold text-white hover:bg-slate-800 disabled:opacity-60">
+          <button type="submit" disabled={saving} className="h-11 w-full rounded-md bg-blue-700 font-semibold text-white hover:bg-blue-800 disabled:opacity-60">
             {saving ? "Đang lưu..." : form.id ? "Cập nhật" : "Thêm giao dịch"}
           </button>
         </form>
@@ -198,7 +198,7 @@ export function TransactionsClient() {
                     <td>{transaction.type === "income" ? "Thu" : "Chi"}</td>
                     <td>{transaction.category}</td>
                     <td>{transaction.note}</td>
-                    <td className={`text-right font-semibold ${transaction.type === "income" ? "text-teal-700" : "text-rose-700"}`}>{currencyFormatter.format(transaction.amount)}</td>
+                    <td className={`text-right font-semibold ${transaction.type === "income" ? "text-blue-700" : "text-rose-700"}`}>{currencyFormatter.format(transaction.amount)}</td>
                     <td className="flex justify-end gap-2 py-2">
                       <button type="button" onClick={() => setForm({ id: transaction.id, type: transaction.type, amount: String(transaction.amount), category: transaction.category, note: transaction.note, transactionDate: transaction.transactionDate.slice(0, 10), paymentMethod: transaction.paymentMethod })} className="grid h-9 w-9 place-items-center rounded-md border border-slate-200 text-slate-600" title="Sửa"><Pencil size={16} /></button>
                       <button type="button" onClick={() => void removeTransaction(transaction.id)} className="grid h-9 w-9 place-items-center rounded-md border border-rose-200 text-rose-700" title="Xóa"><Trash2 size={16} /></button>

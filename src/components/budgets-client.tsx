@@ -57,7 +57,7 @@ export function BudgetsClient() {
   return (
     <div className="grid gap-6 xl:grid-cols-[0.8fr_1.4fr]">
       <section className="money-card rounded-lg p-5">
-        <h2 className="font-semibold text-slate-950">Tạo ngân sách</h2>
+        <h2 className="font-semibold text-slate-900">Tạo ngân sách</h2>
         <form onSubmit={saveBudget} className="mt-4 space-y-4">
           <label className="block text-sm font-medium text-slate-700">
             Tháng
@@ -74,25 +74,25 @@ export function BudgetsClient() {
             <input className="focus-ring mt-1 h-11 w-full rounded-md border border-slate-200 px-3" type="number" min="1" value={form.amount} onChange={(event) => setForm({ ...form, amount: event.target.value })} required />
           </label>
           {error && <p className="rounded-md bg-rose-50 p-3 text-sm text-rose-700">{error}</p>}
-          <button className="h-11 w-full rounded-md bg-slate-950 font-semibold text-white hover:bg-slate-800">Lưu ngân sách</button>
+          <button className="h-11 w-full rounded-md bg-blue-700 font-semibold text-white hover:bg-blue-800">Lưu ngân sách</button>
         </form>
       </section>
       <section className="money-card rounded-lg p-5">
-        <h2 className="font-semibold text-slate-950">Theo dõi ngân sách</h2>
+        <h2 className="font-semibold text-slate-900">Theo dõi ngân sách</h2>
         <div className="mt-4 space-y-4">
           {loading ? <p className="text-sm text-slate-500">Đang tải...</p> : budgets.length ? budgets.map((budget) => (
             <div key={budget.id} className="rounded-md border border-slate-100 bg-white p-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <p className="font-semibold text-slate-950">{budget.category}</p>
+                  <p className="font-semibold text-slate-900">{budget.category}</p>
                   <p className="text-sm text-slate-500">{currencyFormatter.format(budget.spent)} / {currencyFormatter.format(budget.amount)}</p>
                 </div>
-                <span className={`rounded-full px-3 py-1 text-sm font-semibold ${budget.percentUsed >= 100 ? "bg-rose-100 text-rose-700" : budget.percentUsed >= 80 ? "bg-amber-100 text-amber-800" : "bg-teal-100 text-teal-700"}`}>
+                <span className={`rounded-full px-3 py-1 text-sm font-semibold ${budget.percentUsed >= 100 ? "bg-rose-100 text-rose-700" : budget.percentUsed >= 80 ? "bg-amber-100 text-amber-800" : "bg-blue-100 text-blue-700"}`}>
                   {budget.percentUsed}%
                 </span>
               </div>
               <div className="mt-3 h-3 overflow-hidden rounded-full bg-slate-100">
-                <div className={`h-full ${budget.percentUsed >= 100 ? "bg-rose-600" : budget.percentUsed >= 80 ? "bg-amber-500" : "bg-teal-600"}`} style={{ width: `${Math.min(budget.percentUsed, 100)}%` }} />
+                <div className={`h-full ${budget.percentUsed >= 100 ? "bg-rose-600" : budget.percentUsed >= 80 ? "bg-amber-500" : "bg-blue-600"}`} style={{ width: `${Math.min(budget.percentUsed, 100)}%` }} />
               </div>
               {budget.percentUsed >= 100 && <p className="mt-3 text-sm font-medium text-rose-700">Đã vượt ngân sách 100%.</p>}
               {budget.percentUsed >= 80 && budget.percentUsed < 100 && <p className="mt-3 text-sm font-medium text-amber-800">Đã vượt ngưỡng cảnh báo 80%.</p>}

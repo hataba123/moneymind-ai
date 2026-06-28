@@ -25,7 +25,7 @@ export function AuthButton({ compact = false, loading = false }: AuthButtonProps
       <button
         type="button"
         onClick={() => signOut({ callbackUrl: "/" })}
-        className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-900 transition hover:border-rose-200 hover:text-rose-700"
+        className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:border-blue-200 hover:text-blue-700"
       >
         <LogOut size={16} />
         {compact ? "Thoát" : "Đăng xuất"}
@@ -37,7 +37,7 @@ export function AuthButton({ compact = false, loading = false }: AuthButtonProps
     <button
       type="button"
       onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-      className="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-semibold text-white transition hover:bg-slate-800"
+      className="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-blue-700 px-4 text-sm font-semibold text-white transition hover:bg-blue-800"
     >
       <LogIn size={16} />
       {compact ? "Login" : "Đăng nhập Google"}

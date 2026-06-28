@@ -6,7 +6,7 @@ export default function DashboardPage() {
     <>
       <PageHeader
         title="Dashboard"
-        description="Tổng quan thu chi tháng này, danh mục chi nhiều nhất và các giao dịch gần đây."
+        description="Số liệu chính trong tháng hiện tại."
       />
       <DashboardClient />
     </>

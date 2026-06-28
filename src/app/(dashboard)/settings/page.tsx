@@ -6,7 +6,7 @@ export default function SettingsPage() {
     <>
       <PageHeader
         title="Cài đặt"
-        description="Xem thông tin tài khoản, quản lý danh mục mặc định và danh mục tùy chỉnh."
+        description="Tài khoản và danh mục cá nhân."
       />
       <SettingsClient />
     </>
