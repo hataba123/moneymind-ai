@@ -1,4 +1,4 @@
-import OpenAI from "openai";
+import { createDeepSeekClient, DEEPSEEK_MODEL } from "@/lib/deepseek";
 import { connectMongoDB } from "@/lib/mongodb";
 import { AiAdviceLogModel, type AiAdviceLogDocument } from "@/models/AiAdviceLog";
 import { listBudgets } from "@/services/budgetService";
@@ -36,11 +36,11 @@ export async function createAiAdvice(userId: string, question: string) {
   const budgets = await listBudgets(userId);
   let answer = buildRuleBasedAnswer(question, summary, budgets);
 
-  if (process.env.OPENAI_API_KEY) {
+  const deepseek = createDeepSeekClient();
+  if (deepseek) {
     try {
-      const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-      const completion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
+      const completion = await deepseek.chat.completions.create({
+        model: DEEPSEEK_MODEL,
         messages: [
           {
             role: "system",
@@ -56,7 +56,7 @@ export async function createAiAdvice(userId: string, question: string) {
       });
       answer = completion.choices[0]?.message.content?.trim() || answer;
     } catch {
-      answer += "\n\nOpenAI tạm thời không khả dụng, câu trả lời trên dùng logic fallback.";
+      answer += "\n\nDeepSeek tạm thời không khả dụng, câu trả lời trên dùng logic fallback.";
     }
   }
 

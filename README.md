@@ -7,7 +7,7 @@ MoneyMind AI là web app quản lý thu chi cá nhân dùng Next.js App Router. 
 - Next.js App Router, TypeScript, Tailwind CSS
 - Auth.js / NextAuth Google Login
 - MongoDB Atlas, Mongoose
-- OpenAI API, fallback rule-based khi chưa có key
+- DeepSeek API, fallback rule-based khi chưa có key
 - Recharts
 - Zod
 - ESLint
@@ -19,8 +19,8 @@ MoneyMind AI là web app quản lý thu chi cá nhân dùng Next.js App Router. 
 - CRUD giao dịch thu/chi, filter theo loại, danh mục, ngày và search ghi chú.
 - Dashboard: tổng thu, tổng chi, số dư, tỷ lệ tiết kiệm, top danh mục, giao dịch gần đây, biểu đồ Recharts.
 - Budget tracking theo danh mục/tháng, cảnh báo 80% và 100%.
-- AI Assistant đọc dữ liệu user hiện tại, lưu lịch sử tư vấn, fallback rule-based nếu thiếu `OPENAI_API_KEY`.
-- Gợi ý category thông minh từ note bằng OpenAI hoặc rule-based mapping.
+- AI Assistant đọc dữ liệu user hiện tại, lưu lịch sử tư vấn, fallback rule-based nếu thiếu `DEEPSEEK_API_KEY`.
+- Gợi ý category thông minh từ note bằng DeepSeek hoặc rule-based mapping.
 - Settings quản lý danh mục custom, không xóa danh mục mặc định.
 - Demo data cho user đang đăng nhập để test dashboard và AI.
 
@@ -43,7 +43,9 @@ GOOGLE_CLIENT_SECRET=
 NEXTAUTH_SECRET=
 NEXTAUTH_URL=http://localhost:3000
 MONGODB_URI=
-OPENAI_API_KEY=
+DEEPSEEK_API_KEY=
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-flash
 ```
 
 Nếu chưa cấu hình `MONGODB_URI`, app dùng in-memory demo store cho phiên chạy local. Khi có MongoDB Atlas, dữ liệu được lưu bằng Mongoose.
@@ -62,9 +64,9 @@ Nếu chưa cấu hình `MONGODB_URI`, app dùng in-memory demo store cho phiên
 3. Điền `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`.
 4. Tạo `NEXTAUTH_SECRET` bằng secret đủ mạnh.
 
-## OpenAI API
+## DeepSeek API
 
-Điền `OPENAI_API_KEY` để bật phân tích AI và gợi ý category bằng OpenAI. Nếu bỏ trống, app tự dùng phân tích rule-based.
+Điền `DEEPSEEK_API_KEY` để bật phân tích AI và gợi ý category bằng DeepSeek. Mặc định app dùng `DEEPSEEK_MODEL=deepseek-v4-flash` và `DEEPSEEK_BASE_URL=https://api.deepseek.com`. Nếu bỏ trống key, app tự dùng phân tích rule-based.
 
 ## Scripts
 
